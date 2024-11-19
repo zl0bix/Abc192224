@@ -36,6 +36,11 @@ namespace Abc192224
                 _fighters.Add(new Thief());
             }
 
+            public Fight(int num)
+            {
+                List<Fighter> _fighters = new List<Fighter>();                       
+            }
+
             public void Play()
             {
                 // вывод меню со всеми персонажи и характеритик
@@ -79,11 +84,13 @@ namespace Abc192224
 
                         isWork = false;
                 }
-                List<Fighter> tmp = new List<Fighter>();
+                List<Fighter> tmp = _fighters;
 
-                tmp[0] = _fighters[userInput - 1];
+                tmp[userInput - 1] = _fighters[userInput - 1];
+
                 _fighters.RemoveAt(userInput - 1);
-                return tmp[0].Clone();
+
+                return tmp[userInput - 1].Clone();
             }
 
             private void ShowAllFighters()
